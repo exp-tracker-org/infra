@@ -9,6 +9,7 @@ spec:
     repoURL: 'https://github.com/exp-tracker-org/infra.git'
     targetRevision: main
     path: '.'
+    kustomize: {} 
     directory:
       recurse: true
   destination:
