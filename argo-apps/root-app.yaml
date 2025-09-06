@@ -24,7 +24,7 @@ spec:
       recurse: true
   info:
     - name: app-of-apps
-      value: true
+      value: "true"
   # --- List child applications explicitly ---
   sources:
     - repoURL: 'https://github.com/exp-tracker-org/infra.git'
