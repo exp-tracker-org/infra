@@ -1,3 +1,38 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: infra-app
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: 'https://github.com/exp-tracker-org/infra.git'
+#     targetRevision: main
+#     path: '.'
+#     kustomize: {} 
+#     directory:
+#       recurse: true
+#   destination:
+#     server: 'https://kubernetes.default.svc'
+#     namespace: default
+#   syncPolicy:
+#     automated:
+#       prune: true       # delete resources removed from Git
+#       selfHeal: true    # auto-fix drift
+#     syncOptions:
+#       - CreateNamespace=true
+#   hooks:
+#     # Pre-sync hook for MySQL secret
+#     - exec:
+#         command: ["kubectl", "apply", "-f", "pre-sync-hooks/create-mysql-secret.yaml"]
+#         hookType: PreSync
+#   ignoreDifferences:
+#     - group: ""
+#       kind: ConfigMap
+#       name: mysql-config
+#       jsonPointers:
+#         - /data
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -9,26 +44,20 @@ spec:
     repoURL: 'https://github.com/exp-tracker-org/infra.git'
     targetRevision: main
     path: '.'
-    kustomize: {} 
-    directory:
-      recurse: true
+    kustomize: {}        # 👈 use kustomize, not directory.recurse
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
   syncPolicy:
     automated:
-      prune: true       # delete resources removed from Git
-      selfHeal: true    # auto-fix drift
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
-  hooks:
-    # Pre-sync hook for MySQL secret
-    - exec:
-        command: ["kubectl", "apply", "-f", "pre-sync-hooks/create-mysql-secret.yaml"]
-        hookType: PreSync
   ignoreDifferences:
     - group: ""
       kind: ConfigMap
       name: mysql-config
       jsonPointers:
         - /data
+
