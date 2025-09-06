@@ -6,12 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/exp-track-org/infra.git
+    repoURL: https://github.com/exp-tracker-org/infra.git
     targetRevision: main
     path: apps
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: default
   syncPolicy:
     automated:
       prune: true

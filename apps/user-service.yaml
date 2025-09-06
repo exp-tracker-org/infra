@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/exp-track-org/user-service.git
+    repoURL: https://github.com/exp-tracker-org/user-service.git
     targetRevision: main
     path: k8s
   destination:

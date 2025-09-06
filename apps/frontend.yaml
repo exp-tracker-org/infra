@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/exp-track-org/frontend.git
+    repoURL: https://github.com/exp-tracker-org/frontend.git
     targetRevision: main
     path: k8s
   destination:
