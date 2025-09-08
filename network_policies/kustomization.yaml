@@ -1,0 +1,4 @@
+
+resources:
+  - default-deny.yaml
+  - mysql-policy.yaml
