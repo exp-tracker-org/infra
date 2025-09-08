@@ -1,36 +1,42 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+
+resources:
+  - pre-sync-hooks
+  - network_policies
+  - metrics-server       # was metrics-server/kustomization.yaml
+  - ingress-controller   
 # -------------------------
 # Resource order matters
 # -------------------------
-resources:
-  # 1. Secrets and ConfigMaps
-  # - mysql-secret.yaml
-  # - mysql-configmap.yaml
+# resources:
+#   # 1. Secrets and ConfigMaps
+#   # - mysql-secret.yaml
+#   # - mysql-configmap.yaml
 
-  # 2. PersistentVolume and PersistentVolumeClaim
-  # - mysql-pv.yaml
-  # - mysql-pvc.yaml
+#   # 2. PersistentVolume and PersistentVolumeClaim
+#   # - mysql-pv.yaml
+#   # - mysql-pvc.yaml
 
-  # 3. Pre-sync hooks
-  - pre-sync-hooks/create-mysql-secret.yaml
+#   # 3. Pre-sync hooks
+#   - pre-sync-hooks/create-mysql-secret.yaml
 
-  # 4. Services and Deployments
-  # - mysql-service.yaml
-  # - expense-app.yaml
-  # - frontend-app.yaml
-  # - user-app.yaml
-  # - mysql-statefulset.yaml
+#   # 4. Services and Deployments
+#   # - mysql-service.yaml
+#   # - expense-app.yaml
+#   # - frontend-app.yaml
+#   # - user-app.yaml
+#   # - mysql-statefulset.yaml
 
-  # 5. Network policies
-  - network_policies/default-deny.yaml
-  - network_policies/mysql-policy.yaml
+#   # 5. Network policies
+#   - network_policies/default-deny.yaml
+#   - network_policies/mysql-policy.yaml
 
 
-  # 6. Metrics server
-  - metrics-server/kustomization.yaml
+#   # 6. Metrics server
+#   - metrics-server/kustomization.yaml
 
-  # 7. Ingress controller and ingress
-  - ingress-controller/kustomization.yaml
-  # - ingress.yaml
+#   # 7. Ingress controller and ingress
+#   - ingress-controller/kustomization.yaml
+#   # - ingress.yaml
