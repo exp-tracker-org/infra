@@ -6,5 +6,5 @@ resources:
 
 
 
-patches:
+patchesStrategicMerge:
   - patch-service.yaml
