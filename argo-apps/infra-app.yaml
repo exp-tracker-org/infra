@@ -46,7 +46,9 @@ spec:
     repoURL: 'https://github.com/exp-tracker-org/infra.git'
     targetRevision: main
     path: '.'
-    kustomize: {}        # 👈 use kustomize, not directory.recurse
+    directory: 
+      recurse: true
+    #kustomize: {}        # 👈 use kustomize, not directory.recurse
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
