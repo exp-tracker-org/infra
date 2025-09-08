@@ -4,5 +4,8 @@ kind: Kustomization
 resources:
   - https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
-patchesStrategicMerge:
-  - patch-deployment.yaml
+patches:
+  - target:
+      kind: Deployment
+      name: metrics-server
+    path: patch-deployment.yaml
