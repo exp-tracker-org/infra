@@ -9,4 +9,4 @@ resources:
   - ingress-controller/
   - metrics-server/
   - network_policies/
-  - pre-sync-hooks/
+
