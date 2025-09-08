@@ -6,34 +6,31 @@ kind: Kustomization
 # -------------------------
 resources:
   # 1. Secrets and ConfigMaps
-  - mysql-secret.yaml
-  - mysql-configmap.yaml
+  # - mysql-secret.yaml
+  # - mysql-configmap.yaml
 
   # 2. PersistentVolume and PersistentVolumeClaim
-  - mysql-pv.yaml
-  - mysql-pvc.yaml
+  # - mysql-pv.yaml
+  # - mysql-pvc.yaml
 
   # 3. Pre-sync hooks
   - pre-sync-hooks/create-mysql-secret.yaml
 
   # 4. Services and Deployments
-  - mysql-service.yaml
-  - expense-app.yaml
-  - frontend-app.yaml
-  - user-app.yaml
-  - mysql-statefulset.yaml
+  # - mysql-service.yaml
+  # - expense-app.yaml
+  # - frontend-app.yaml
+  # - user-app.yaml
+  # - mysql-statefulset.yaml
 
   # 5. Network policies
   - network_policies/default-deny.yaml
   - network_policies/mysql-policy.yaml
-  # Remove these if they don't exist:
-  # - network_policies/allow-expense-service.yaml
-  # - network_policies/allow-frontend.yaml
-  # - network_policies/allow-user-service.yaml
+
 
   # 6. Metrics server
   - metrics-server/kustomization.yaml
 
   # 7. Ingress controller and ingress
   - ingress-controller/kustomization.yaml
-  - ingress.yaml
+  # - ingress.yaml
