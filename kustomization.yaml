@@ -4,7 +4,7 @@ kind: Kustomization
 
 resources:
   # - pre-sync-hooks
-  - network_policies
+  # - network_policies
   - metrics-server       # was metrics-server/kustomization.yaml
   - ingress-controller   
 # -------------------------
