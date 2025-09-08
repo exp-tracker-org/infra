@@ -1,0 +1,12 @@
+resources:
+  - mysql-configmap.yaml
+  - mysql-pv.yaml
+  - mysql-pvc.yaml
+  - mysql-secret.yaml
+  - mysql-service.yaml
+  - mysql-statefulset.yaml
+  - ingress.yaml
+  - ingress-controller/
+  - metrics-server/
+  - network_policies/
+  - pre-sync-hooks/
