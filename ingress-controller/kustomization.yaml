@@ -4,6 +4,8 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.4/deploy/static/provider/cloud/deploy.yaml
+  - https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.4/deploy/static/provider/cloud/deploy.yaml
 
-patchesStrategicMerge:
+
+patches:
   - patch-service.yaml
